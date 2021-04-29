@@ -1,0 +1,33 @@
+﻿<Window x:Class="PLWPF.newHost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="newHost" Height="450" Width="800" FlowDirection="RightToLeft" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Image Source="C:\workingfolder\Project01_2373_2172_dotNet5780\PLWPF\images\hostingUnit.jpg" Stretch="Fill"></Image>
+        <Label Content=" פרטים אישיים   " HorizontalAlignment="Left" Margin="17,2,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="48" FontFamily="Viner Hand ITC" FontWeight="Bold" FontStyle="Italic" Height="67" Width="641"/>
+        <Label Content="שם פרטי:"  Foreground="#FF120F0F" HorizontalAlignment="Left" Margin="25,77,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <TextBox Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="#FF181515" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="7.342,1.538" Margin="154,89,0,0" Width="186" Height="25" Name="lineFirstName" Foreground="#FF161414" FontSize="18" />
+        <Label Content="שם משפחה:"  Foreground="#FF251F1F" HorizontalAlignment="Left" Margin="19,121,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <TextBox Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="#FF181515" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="7.342,1.538" Margin="173,135,0,0" Width="186" Height="24" x:Name="lineFamilyName" Foreground="#FF161414" FontSize="18" />
+        <Label Content="מספר טלפון:"  Foreground="#FF251F1F" HorizontalAlignment="Left" Margin="21,169,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <TextBox Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="#FF181515" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="7.342,1.538" Margin="176,179,0,0" Width="186" Height="25" x:Name="linePhone" Foreground="#FF161414" FontSize="18"  />
+        <Label Content="סניף בנק:"  Foreground="Black" HorizontalAlignment="Left" Margin="22,213,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" RenderTransformOrigin="0.427,-0.238"/>
+        <ComboBox Name="bank" ItemsSource="{Binding  BankList}"    HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Margin="167,226,0,0" SelectionChanged="Bank_SelectionChanged" Loaded="Bank_Loaded">
+        </ComboBox>
+        <Label Content="מספר חשבון בנק:"  Foreground="#FF251F1F" HorizontalAlignment="Left" Margin="15,255,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <TextBox Background="Transparent" BorderThickness="0,0,0,1" BorderBrush="#FF181515" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="7.342,1.538" Margin="225,267,0,0" Width="186" Height="24" x:Name="lineAccountNumber" Foreground="#FF161414" FontSize="18" />
+        <Label Content="אישור גביה מהבנק:"  Foreground="Black" HorizontalAlignment="Left" Margin="25,310,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <ComboBox Name="enumsYesNo"   HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="259,322,0,0" SelectionChanged="EnumsYesNo_SelectionChanged"/>
+        <Button Name="save" Content="שמירה" Foreground="Black" BorderBrush="Black" Background="Transparent" HorizontalAlignment="Left" Margin="615,338,0,0" VerticalAlignment="Top" Width="158" Height="42" FontSize="22" FontWeight="Bold" Click="Save_Click"/>
+
+
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,144 @@
+﻿<Window x:Class="PLWPF.Administrator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="Administrator" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="419" Margin="-4,-1,0,0" VerticalAlignment="Top" Width="796">
+            <TabItem Header="רשימת דרישות לקוח" Margin="-2,-7,-27,6" FontWeight="Bold" FontSize="20">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="216"/>
+                        <ColumnDefinition Width="305*"/>
+                        <ColumnDefinition Width="65*"/>
+                        <ColumnDefinition Width="204*"/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Margin="0,0,6,0" Grid.Column="0">
+                        <ListBox x:Name="listBox_guest" ItemsSource="{Binding}" SelectionChanged="ListBox_SelectionChanged" >
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <!--FontSize="12px-->
+                                        <TextBlock Text="{Binding PrivateName}"/>
+                                        <TextBlock Text="  "/>
+                                        <TextBlock Text="{Binding FamilyName}"/>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="1" Grid.ColumnSpan="3">
+                        <TextBlock Name="GuestDetails"  Margin="50,0,0,0" FontSize="12px"  />
+                    </WrapPanel>
+                    <Button Content="יציאה" Grid.Column="3" HorizontalAlignment="Left" Margin="42,301,0,-1.667" VerticalAlignment="Top" Width="160" Height="45" Click="Button_Click"></Button>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="רשימת יחידות אירוח" Margin="19,-6,-54,0" FontWeight="Bold" FontSize="20" Height="67" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5" Margin="0,-9,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="68*"/>
+                        <ColumnDefinition Width="227*"/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Margin="0,0,6,0" Grid.ColumnSpan="3">
+                        <ListBox x:Name="listBox_HostingUnit" ItemsSource="{Binding HostingUnitName}" SelectionChanged="ListBox_HostingUnit_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding HostingUnitName}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Name="HostinUnitDetails" Text="" Margin="50,0,0,0" FontSize="12px"/>
+
+                    </WrapPanel>
+                    <Button Content="יציאה" Grid.Column="2" HorizontalAlignment="Left" Margin="285,298,0,0" VerticalAlignment="Top" Width="160" Height="45" Click="Button_Click"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="אופציות נוספות" Margin="42,-5,-107,8" FontWeight="Bold" FontSize="20">
+                <Grid Background="#FFE5E5E5" Margin="0,2,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox HorizontalAlignment="Left" Height="340" Margin="0,0,0,0" VerticalAlignment="Top" Grid.Column="0" Width="450">
+                        <Button Content="    יחידות בירושלים נגישות לנכים עם בריכה" Width="436" Height="50" Click="Hosting1_Click"/>
+                        <Button  Content=" דרישות לקוח עם בריכה" Width="436" Height="50" Click="GuestRequest_Click"/>
+                        <Button  Content=" היחידה בעלת הכי הרבה הזמנות" Width="436" Height="50" Click="Hosting2_Click"/>
+                        <Button  Content=" יחידות בירושלים" Width="436" Height="50" Click="Hosting3_Click"/>
+                        <Button  Content=" יחידות במרכז" Width="436" Height="50" Click="Hosting4_Click"/>
+                        <Button  Content="יחידות בצפון" Width="436" Height="50" Click="Hosting5_Click"/>
+                        <Button  Content=" יחידות בדרום" Width="436" Height="50" Click="Hosting6_Click"/>
+                        <Button Content="יציאה" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="45" Click="Button_Click"/>
+                    </ListBox>
+                    <ListBox x:Name="listBox_HostingUnit_select" ItemsSource="{Binding HostingUnitName}" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+
+                                <TextBlock Text="{Binding HostingUnitName }"/>
+
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <!--
+                    <ListBox x:Name="listBox_GuestRequestPool" ItemsSource="{Binding GuestRequestPool}" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <TextBlock Text="{Binding PrivateName}"/>
+                                    <TextBlock Text="  "/>
+                                    <TextBlock Text="{Binding FamilyName}"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    -->
+                    <!--<TextBox Name=""  Binding.SourceUpdated="" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                      
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HostingUnitName}"/>
+                            </DataTemplate>
+                      
+                    </TextBox>-->
+                    <!--
+                    <ListBox x:Name="listBox_HostingUnitJerusalem" ItemsSource="{Binding HostingUnitJerusalem}" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HostingUnitName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox x:Name="listBox_HostingUnitCenter" ItemsSource="{Binding HostingUnitCenter}" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HostingUnitName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox x:Name="listBox_HostingUnitNorth" ItemsSource="{Binding HostingUnitNorth}" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HostingUnitName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox x:Name="listBox_HostingUnitSouth" ItemsSource="{Binding HostingUnitSouth}" SelectionChanged="ListBox_HostingUnit_SelectionChanged" Grid.Column="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HostingUnitName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>-->
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
